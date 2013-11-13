@@ -39,7 +39,7 @@ func! DeleteTrailingWS()
 
 
 
-"Change of backspace acts
+"Change how backspace acts
 set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
@@ -62,7 +62,7 @@ set hlsearch
 map <F5> :setlocal spell! spelllang=en_us<CR>
 
 "Have leader; append a semi-colon at the end of a line
-inoremap <leader>; <C-o>A;<Esc>
+noremap <Leader>; :<C-o>;<Esc>
 
 "kk short for escape
 imap kk <Esc>
@@ -74,3 +74,10 @@ map ,e :e <C-R>=expand("%:p:h") . "/" <CR>
 "Change the current working directory to the directory that the current file
 "you are editing is in.
 map ,cd :cd %:p:h <CR>
+
+
+" in visual mode use ctrl-r to search and replac3
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
+
+" F2 toggles line numbers
+nnoremap <F2> :set nonumber! nornu! <CR>
