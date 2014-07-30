@@ -81,3 +81,15 @@ vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>
 
 " F2 toggles line numbers
 nnoremap <F2> :set nonumber! nornu! <CR>
+
+autocmd BufRead,BufNewFile *.tpp set filetype=cpp
+autocmd BufRead,BufNewFile *.nvl set filetype=cpp
+
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
