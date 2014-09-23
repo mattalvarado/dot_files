@@ -37,6 +37,19 @@ func! DeleteTrailingWS()
       endfunc
       autocmd BufWrite *.py :call DeleteTrailingWS()    
 
+func! DeleteTrailingWSCPP()
+  exe "normal mz"
+    %s/\s\+$//ge
+      exe "normal 'z"
+      endfunc
+      autocmd BufWrite *.cpp :call DeleteTrailingWSCPP()
+
+func! DeleteTrailingWSH()
+  exe "normal mz"
+    %s/\s\+$//ge
+      exe "normal 'z"
+      endfunc
+      autocmd BufWrite *.h :call DeleteTrailingWSH()
 
 
 "Change how backspace acts
@@ -92,4 +105,21 @@ autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 autocmd BufWinLeave * call clearmatches()
+
+function! CRLHeader()
+    r~/.vim/vim/cpp/CRLHeader.txt
+endfunction
+
+nmap ,n :call CRLHeader()<CR>
+
+nmap ,d "=strftime('%F')<C-M>p
+
+nmap ,u :call GetUUID()<CR>
+
+function! GetUUID()
+  let cmd = "uuidgen | tr -d '\n' | tr - _"
+  let result = system(cmd)
+  " Append space + result to current line without moving cursor.
+  call setline(line('.'), getline('.').result)
+endfunction
 
