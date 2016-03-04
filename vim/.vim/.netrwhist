@@ -1,7 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =5
-let g:netrw_dirhist_1='/home/malvarado/Testing/MultiSenseVcontrol/src/Integration-2.2.0/multisense_ros/src'
-let g:netrw_dirhist_2='/home/malvarado/Testing/MultiSenseVcontrol/src/Integration-2.2.0/multisense_ros'
-let g:netrw_dirhist_3='/home/malvarado/Testing/MultiSenseVcontrol/src/Integration-2.2.0/multisense_ros/msg'
-let g:netrw_dirhist_4='/tmp/test/src/Integration-2.2.0/multisense_ros'
-let g:netrw_dirhist_5='/tmp/test/src/Integration-2.2.0/multisense_cal_check'
