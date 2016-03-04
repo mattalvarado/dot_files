@@ -1,0 +1,10 @@
+ * Copyright 2015
+ * Carnegie Robotics, LLC
+ * 4501 Hatfield St, Pittsburgh, PA, 15201
+ * http://www.carnegierobotics.com
+ *
+ * This material contained herein is Proprietary and Confidential to
+ * Carnegie Robotics, LLC.
+ *
+ * Significant history (date, user, job code, action):
+ *   , Matt Alvarado <malvarado@carnegierobotics.com>, <JOB>, Created file.
