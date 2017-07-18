@@ -14,13 +14,11 @@ syntax enable
 "Color scheme
 colorscheme desert
 
-
 "enable full color
 set t_Co=256
 
 "set relative line number
 set relativenumber
-
 
 "Use spaces instead of tabs
 set smartindent
@@ -32,6 +30,11 @@ set wrap
 
 set showcmd
 
+"Dont rerender the screen on every action
+set lazyredraw
+
+set wildmenu
+
 "Delete Trailing whitespace for python files
 func! DeleteTrailingWS()
   exe "normal mz"
@@ -40,6 +43,7 @@ func! DeleteTrailingWS()
       endfunc
       autocmd BufWrite *.py :call DeleteTrailingWS()
 
+"Delete Trailing whitespace in cpp files
 func! DeleteTrailingWSCPP()
   exe "normal mz"
     %s/\s\+$//ge
@@ -47,6 +51,7 @@ func! DeleteTrailingWSCPP()
       endfunc
       autocmd BufWrite *.cpp :call DeleteTrailingWSCPP()
 
+"Delete Trailing whitespace in h files
 func! DeleteTrailingWSH()
   exe "normal mz"
     %s/\s\+$//ge
@@ -54,6 +59,7 @@ func! DeleteTrailingWSH()
       endfunc
       autocmd BufWrite *.h :call DeleteTrailingWSH()
 
+"Delete Trailing whitespace in hh files
 func! DeleteTrailingWSHH()
   exe "normal mz"
     %s/\s\+$//ge
@@ -68,11 +74,11 @@ set whichwrap+=<,>,h,l
 
 filetype plugin indent on
 
-noremap <Leader>rc :<C-u>Roscd<space>
-"noremap <Leader>re :<C-u>Rosed<space>
-set colorcolumn=80
+"Enforce 120 char line width
+set colorcolumn=120
 
 "Enable syntax highlighting
+set incsearch
 set hlsearch
 hi Search ctermfg=Black ctermbg=LightRed
 
@@ -120,5 +126,14 @@ function! GetUUID()
   call setline(line('.'), getline('.').result)
 endfunction
 
+"Disable highlights with F3
 map <F3> :noh<CR>
 
+au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
+
+au BufRead *calibration.yml set ft=
+
+set path+=**
+command! MakeTags !ctags -R .
+
+set complete=.,w,b,u
