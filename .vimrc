@@ -129,10 +129,6 @@ endfunction
 "Disable highlights with F3
 map <F3> :noh<CR>
 
-au BufNewFile,BufRead *.yaml,*.yml so ~/.vim/yaml.vim
-
-au BufRead *calibration.yml set ft=
-
 set path+=**
 command! MakeTags !ctags -R .
 
